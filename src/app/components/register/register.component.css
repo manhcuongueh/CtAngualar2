@@ -1,0 +1,16 @@
+.ng-valid[required], .ng-valid:not(form)  {
+  border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+.exist{
+  margin-left: 100px;
+  padding-left: 100px;
+  font-size: 20px;
+  height: 60px;
+  width: 500px;
+  border-radius: 5%;
+  background-color: yellowgreen;
+  color: red;
+}

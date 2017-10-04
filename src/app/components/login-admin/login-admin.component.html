@@ -1,0 +1,32 @@
+<div class="col-md-6 col-md-offset-3">
+    <h2>Login</h2>
+    <div class="check" *ngIf="checkLogin"> 
+    <p>Your email or password is wrong, please enter again</p>
+    </div>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" >
+        <div class="form-group" > 
+      <label >Email Address</label>
+      <input type="email" class="form-control" name="email" [(ngModel)]="account.email"
+      #email="ngModel" required ngModel pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"/>
+      <div *ngIf="email.errors&&(email.dirty||email.touched)" 
+      class="alert alert-danger">
+            <div  [hidden]="!email.errors.required">Email Address is required</div>
+            <div  [hidden]="!email.errors.pattern">Invalid Email Address</div>
+        </div>
+
+    </div>
+        <div class="form-group" > 
+      <label >PassWord</label>
+      <input type="password" class="form-control" name="password" [(ngModel)]="account.password"
+      #password="ngModel" required ngModel minlength="6" maxlength="20"/>
+      <div *ngIf="password.errors&&(password.dirty||password.touched)" 
+      class="alert alert-danger">
+            <div  [hidden]="!password.errors.required">Password is required</div>
+            <div  [hidden]="!password.errors.minlength">PassWord must be between 6-20 characters </div>
+        </div>
+    </div>
+        <div class="form-group">
+            <button  class="btn btn-primary" >Login</button>
+        </div>
+    </form>
+</div>
